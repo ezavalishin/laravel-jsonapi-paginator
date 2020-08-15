@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v1
-      - uses: php-actions/phpunit@v8
       - name: PHPUnit Tests
-      uses: php-actions/phpunit@v8
-      with:
-        configuration: /phpunit.xml
+        uses: php-actions/phpunit@v8
+        with:
+          configuration: /phpunit.xml
