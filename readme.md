@@ -1,4 +1,4 @@
-# LaravelJsonApiPaginator
+# laravel-jsonapi-paginator
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -12,7 +12,7 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
-$ composer require ezavalishin/laraveljsonapipaginator
+$ composer require ezavalishin/laravel-jsonapi-paginator
 ```
 
 ## Usage
@@ -44,14 +44,14 @@ If you discover any security related issues, please email ezavalishin@gmail.com 
 
 MIT. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/ezavalishin/laraveljsonapipaginator.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ezavalishin/laraveljsonapipaginator.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/ezavalishin/laraveljsonapipaginator/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/ezavalishin/laravel-jsonapi-paginator.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ezavalishin/laravel-jsonapi-paginator.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/ezavalishin/laravel-jsonapi-paginator/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/ezavalishin/laraveljsonapipaginator
-[link-downloads]: https://packagist.org/packages/ezavalishin/laraveljsonapipaginator
-[link-travis]: https://travis-ci.org/ezavalishin/laraveljsonapipaginator
-[link-styleci]: https://styleci.io/repos/12345678
+[link-packagist]: https://packagist.org/packages/ezavalishin/laravel-jsonapi-paginator
+[link-downloads]: https://packagist.org/packages/ezavalishin/laravel-jsonapi-paginator
+[link-travis]: https://travis-ci.org/ezavalishin/laravel-jsonapi-paginator
+[link-styleci]: https://styleci.io/repos/287824410
 [link-author]: https://github.com/ezavalishin
 [link-contributors]: ../../contributors
