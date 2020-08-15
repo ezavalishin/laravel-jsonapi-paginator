@@ -1,0 +1,42 @@
+{
+    "name": "ezavalishin/laravel-jsonapi-paginator",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evgeniy Zavalishin",
+            "email": "ezavalishin@gmail.com",
+            "homepage": "ezavalishin.ru"
+        }
+    ],
+    "homepage": "https://github.com/ezavalishin/laravel-jsonapi-paginator",
+    "keywords": ["Laravel", "LaravelJsonApiPaginator"],
+    "require": {
+        "illuminate/support": "~7",
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ezavalishin\\LaravelJsonApiPaginator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ezavalishin\\LaravelJsonApiPaginator\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ezavalishin\\LaravelJsonApiPaginator\\LaravelJsonApiPaginatorServiceProvider"
+            ]
+        }
+    }
+}
