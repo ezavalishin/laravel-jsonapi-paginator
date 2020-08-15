@@ -16,6 +16,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected function mockedCollection($count = 100): Collection
     {
         $data = array_fill(0, $count, random_int(0, 1000));
+
         return new Collection($data);
     }
 

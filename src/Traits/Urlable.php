@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ezavalishin\LaravelJsonApiPaginator\Traits;
-
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -15,22 +13,23 @@ trait Urlable
     {
         $query = array_merge($this->query, $params);
 
-        return $this->request->root() . '/' . $this->path
-            . (str_contains($this->path, '?') ? '&' : '?')
-            . http_build_query($query, '', '&')
-            . $this->buildFragment();
+        return $this->request->root().'/'.$this->path
+            .(str_contains($this->path, '?') ? '&' : '?')
+            .http_build_query($query, '', '&')
+            .$this->buildFragment();
     }
 
-    public function offsetUrl(int $offset) : string {
+    public function offsetUrl(int $offset): string
+    {
         return $this->url([
-            'page[offset]' => $offset
+            'page[offset]' => $offset,
         ]);
     }
 
     public function pageUrl(int $number): string
     {
         return $this->url([
-            'page[number]' => $number
+            'page[number]' => $number,
         ]);
     }
 
