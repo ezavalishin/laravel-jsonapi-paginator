@@ -47,7 +47,7 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/ezavalishin/laravel-jsonapi-paginator.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/ezavalishin/laravel-jsonapi-paginator.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/ezavalishin/laravel-jsonapi-paginator/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-styleci]: https://styleci.io/repos/287824410/shield
 
 [link-packagist]: https://packagist.org/packages/ezavalishin/laravel-jsonapi-paginator
 [link-downloads]: https://packagist.org/packages/ezavalishin/laravel-jsonapi-paginator
