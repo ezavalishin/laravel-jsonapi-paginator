@@ -29,7 +29,7 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laraveljsonapipaginator.php', 'laraveljsonapipaginator');
+        $this->mergeConfigFrom(__DIR__.'/../config/laraveljsonapipaginator.php', 'laraveljsonapipaginator');
         $request = app(Request::class);
 
         $page = $request->query('page', []);
@@ -40,26 +40,23 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
             $macro = $this->offsetBasedMacro($request);
         }
 
-
         // Register macros
         QueryBuilder::macro('jsonApiPaginate', $macro);
         EloquentBuilder::macro('jsonApiPaginate', $macro);
     }
 
-
     private function offsetBasedMacro(Request $request): callable
     {
         return function ($perPage = null, $columns = ['*'], array $options = []) use ($request) {
-
             $page = $request->query('page', []);
 
-            if (!$perPage) {
+            if (! $perPage) {
                 $perPage = ($page['limit'] ?? config('laraveljsonapipaginator.default_limit'));
             }
 
-            $perPage = (int)($perPage > config('laraveljsonapipaginator.max_limit') ? config('laraveljsonapipaginator.max_limit') : $perPage);
+            $perPage = (int) ($perPage > config('laraveljsonapipaginator.max_limit') ? config('laraveljsonapipaginator.max_limit') : $perPage);
 
-            $offset = (int)($page['offset'] ?? 0);
+            $offset = (int) ($page['offset'] ?? 0);
 
             /** @var EloquentBuilder|QueryBuilder $this */
             $this->skip($offset)
@@ -74,16 +71,15 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
     private function pageBasedMacro(Request $request): callable
     {
         return function ($perPage = null, $columns = ['*'], array $options = []) use ($request) {
-
             $page = $request->query('page', []);
 
-            if (!$perPage) {
+            if (! $perPage) {
                 $perPage = $page['size'] ?? config('laraveljsonapipaginator.default_limit');
             }
 
-            $perPage = (int)($perPage > config('laraveljsonapipaginator.max_limit') ? config('laraveljsonapipaginator.max_limit') : $perPage);
+            $perPage = (int) ($perPage > config('laraveljsonapipaginator.max_limit') ? config('laraveljsonapipaginator.max_limit') : $perPage);
 
-            $number = max((int)($page['number'] ?? 1), 1);
+            $number = max((int) ($page['number'] ?? 1), 1);
 
             /** @var EloquentBuilder|QueryBuilder $this */
             $this->skip(($number - 1) * $perPage)
@@ -103,7 +99,7 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
     protected function bootForConsole()
     {
         $this->publishes([
-            __DIR__ . '/../config/laraveljsonapipaginator.php' => config_path('laraveljsonapipaginator.php'),
+            __DIR__.'/../config/laraveljsonapipaginator.php' => config_path('laraveljsonapipaginator.php'),
         ], 'laraveljsonapipaginator.config');
     }
 }

@@ -7,7 +7,6 @@ use ezavalishin\LaravelJsonApiPaginator\Tests\TestCase;
 
 class OffsetBasedPaginatorTest extends TestCase
 {
-
     public function testHasLimitLtTotal(): void
     {
         $data = $this->mockedCollection(99);
@@ -31,7 +30,7 @@ class OffsetBasedPaginatorTest extends TestCase
 
         $this->assertStringContainsString('page[offset]=0', urldecode($links['first']));
         $this->assertStringContainsString('page[offset]=90', urldecode($links['last']));
-        $this->assertStringContainsString('page[offset]=' . $limit, urldecode($links['next']));
+        $this->assertStringContainsString('page[offset]='.$limit, urldecode($links['next']));
         $this->assertNull($links['prev']);
     }
 

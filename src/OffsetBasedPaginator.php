@@ -28,7 +28,6 @@ class OffsetBasedPaginator extends AbstractPaginator implements Paginator, Array
         $this->offset = $offset;
         $this->total = $total;
 
-
         $this->query = $this->getRawQuery(['offset']);
         $this->path = $request->path();
 
@@ -63,9 +62,9 @@ class OffsetBasedPaginator extends AbstractPaginator implements Paginator, Array
                 $lastOffset = floor(($this->total) / $this->perPage) * $this->perPage;
             }
         }
+
         return $this->offsetUrl($lastOffset);
     }
-
 
     public function render($view = null, $data = []): string
     {
