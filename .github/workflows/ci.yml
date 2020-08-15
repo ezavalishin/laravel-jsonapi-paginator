@@ -12,4 +12,4 @@ jobs:
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v8
         with:
-          configuration: /phpunit.xml
+          configuration: ./phpunit.xml
