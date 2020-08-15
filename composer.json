@@ -28,6 +28,9 @@
             "ezavalishin\\LaravelJsonApiPaginator\\": "src/"
         }
     },
+    "scripts": {
+        "test": "phpunit"
+    },
     "autoload-dev": {
         "psr-4": {
             "ezavalishin\\LaravelJsonApiPaginator\\Tests\\": "tests"
