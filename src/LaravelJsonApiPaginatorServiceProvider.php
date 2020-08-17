@@ -23,16 +23,7 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-    }
 
-    /**
-     * Register any package services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->mergeConfigFrom(__DIR__.'/../config/laraveljsonapipaginator.php', 'laraveljsonapipaginator');
         $request = app(Request::class);
 
         $page = $request->query('page', []);
@@ -46,6 +37,16 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
         // Register macros
         QueryBuilder::macro('jsonApiPaginate', $macro);
         EloquentBuilder::macro('jsonApiPaginate', $macro);
+    }
+
+    /**
+     * Register any package services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/laraveljsonapipaginator.php', 'laraveljsonapipaginator');
     }
 
     private function offsetBasedMacro(Request $request): callable
