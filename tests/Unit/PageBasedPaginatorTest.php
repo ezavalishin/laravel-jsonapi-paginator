@@ -2,7 +2,6 @@
 
 namespace ezavalishin\LaravelJsonApiPaginator\Tests\Unit;
 
-use ezavalishin\LaravelJsonApiPaginator\OffsetBasedPaginator;
 use ezavalishin\LaravelJsonApiPaginator\PageBasedPaginator;
 use ezavalishin\LaravelJsonApiPaginator\Tests\TestCase;
 
