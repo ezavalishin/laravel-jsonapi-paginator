@@ -7,6 +7,9 @@ use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @codeCoverageIgnore
+ */
 class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
 {
     /**

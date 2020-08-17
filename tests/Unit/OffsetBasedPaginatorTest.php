@@ -14,7 +14,7 @@ class OffsetBasedPaginatorTest extends TestCase
         $offset = 0;
         $total = $data->count();
 
-        $paginator = new OffsetBasedPaginator($data, $limit, $offset, $total, $this->request(), []);
+        $paginator = new OffsetBasedPaginator($data, $limit, $offset, $total, $this->request(), ['key' => 'value']);
 
         $result = $paginator->toArray();
 
@@ -86,6 +86,8 @@ class OffsetBasedPaginatorTest extends TestCase
         $this->assertStringContainsString('page[offset]=80', urldecode($links['last']));
         $this->assertStringContainsString('page[offset]=0', urldecode($links['prev']));
         $this->assertStringContainsString('page[offset]=40', urldecode($links['next']));
+
+        $this->assertTrue($paginator->hasMorePages());
     }
 
     public function testHasLimitRtTotalAndHasOffset(): void
@@ -113,5 +115,35 @@ class OffsetBasedPaginatorTest extends TestCase
         $this->assertStringContainsString('page[offset]=0', urldecode($links['last']));
         $this->assertStringContainsString('page[offset]=0', urldecode($links['prev']));
         $this->assertNull($links['next']);
+
+        $this->assertFalse($paginator->hasMorePages());
+        $this->assertEquals('', $paginator->render());
+    }
+
+    public function testHasNotLimitAndHasOffset(): void
+    {
+        $data = $this->mockedCollection(100);
+        $limit = 0;
+        $offset = 10;
+        $total = $data->count();
+
+        $paginator = new OffsetBasedPaginator($data, $limit, $offset, $total, $this->request(), []);
+
+        $result = $paginator->toArray();
+
+        [$data, $links, $meta] = $this->parseResult($result);
+
+        $this->assertCount($limit, $data);
+
+        $this->assertEquals($limit, $meta['limit']);
+        $this->assertEquals($offset, $meta['offset']);
+        $this->assertEquals($offset, $meta['prev']);
+        $this->assertEquals($offset, $meta['next']);
+        $this->assertEquals($meta['total'], $total);
+
+        $this->assertStringContainsString('page[offset]=0', urldecode($links['first']));
+        $this->assertStringContainsString('page[offset]=0', urldecode($links['last']));
+        $this->assertStringContainsString('page[offset]=10', urldecode($links['prev']));
+        $this->assertStringContainsString('page[offset]=10', urldecode($links['next']));
     }
 }

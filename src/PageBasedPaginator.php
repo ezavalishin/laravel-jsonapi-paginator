@@ -16,6 +16,8 @@ class PageBasedPaginator extends LengthAwarePaginator
         $this->query = $this->getRawQuery(['number']);
         $this->path = $request->path();
 
+        $items = $items->slice(0, $perPage);
+
         parent::__construct($items, $total, $perPage, $currentPage, $options);
     }
 
