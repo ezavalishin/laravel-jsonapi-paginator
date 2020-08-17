@@ -16,7 +16,41 @@ Via Composer
 $ composer require ezavalishin/laravel-jsonapi-paginator
 ```
 
+Optionally you can publish the config file with:
+
+```bash
+$ php artisan vendor:publish --provider="ezavalishin/LaravelJsonApiPaginator\LaravelJsonApiPaginatorServiceProvider" --tag="config"
+```
+
 ## Usage
+
+To paginate the results according to the json API spec, simply call the jsonPaginate method.
+
+```php
+YourModel::jsonApiPaginate();
+```
+
+Of course you may still use all the builder methods you know and love:
+
+```php
+YourModel::where('my_field', 'myValue')->jsonApiPaginate();
+```
+
+By default the maximum page size is set to 30. You can change this number in the config file or just pass the value to jsonPaginate.
+
+```php
+$maxResults = 60;
+
+YourModel::jsonApiPaginate($maxResults);
+```
+
+### Offset based pagination
+
+Supports: `?page[offset]` and `?page[limit]`
+
+### Page based pagination
+
+Supports: `?page[number]` and `?page[size]`
 
 ## Change log
 
