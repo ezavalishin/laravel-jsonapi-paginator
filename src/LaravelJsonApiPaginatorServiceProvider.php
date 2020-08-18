@@ -102,7 +102,7 @@ class LaravelJsonApiPaginatorServiceProvider extends ServiceProvider
      */
     protected function bootForConsole()
     {
-        $configPath = __DIR__ . '/../config/laraveljsonapipaginator.php';
+        $configPath = __DIR__.'/../config/laraveljsonapipaginator.php';
         if (function_exists('config_path')) {
             $publishPath = config_path('laraveljsonapipaginator.php');
         } else {
